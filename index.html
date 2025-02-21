@@ -15,8 +15,8 @@
     <tr>
         <td>Proficiency Dice Pool:</td>
         <td><span id="proficiencyDie"></span></td>
-        <td><button onclick="updateProficiencyDie(1)">+</button></td>
-        <td><button onclick="updateProficiencyDie(-1)">-</button></td>
+        <td><button onclick="document.getElementById('proficiencyDie').textContent = updateProficiencyDie(1)">+</button></td>
+        <td><button onclick="document.getElementById('proficiencyDie').textContent = updateProficiencyDie(-1)">-</button></td>
     </tr>
     <tr>
         <td>Ability Dice:</td>
@@ -47,7 +47,8 @@
           let n = getProficiencyDie();
           n += i;
           setProficiencyDie(n);
-          document.getElementById("proficiencyDie").textContent = n;
+          return n;
+          //document.getElementById("proficiencyDie").textContent = n;
         }
         function updateBoostDie(i) {
           let n = getBoostDie();
