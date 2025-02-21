@@ -6,6 +6,30 @@
   <body>
     <h1>Sword and Bones Dice Roller</h1>
     <p>This is the snb repository.</p>
+
+
+<table>
+    <tr>
+        <td>Proficiency Dice:</td>
+        <td><span id="proficiencyDie"></span></td>
+        <td><button onclick="document.getElementById('proficiencyResult').textContent = setProficiencyDie(1)">+</button></td>
+        <td><button onclick="document.getElementById('proficiencyResult').textContent = setProficiencyDie(-1)">-</button></td>
+    </tr>
+    <tr>
+        <td>Ability Dice:</td>
+        <td><span id="abilityDie"></span></td>
+        <td><button onclick="document.getElementById('abilityResult').textContent = setAbilityDie(1)">+</button></td>
+        <td><button onclick="document.getElementById('abilityResult').textContent = setAbilityDie(-1)">-</button></td>
+    </tr>
+    <tr>
+        <td>Boost Dice:</td>
+        <td><span id="boostDie"></span></td>
+        <td><button onclick="document.getElementById('boostResult').textContent = setBoostDie(1)">+</button></td>
+        <td><button onclick="document.getElementById('boostResult').textContent = setBoostDie(-1)">-</button></td>
+    </tr>
+</table>
+
+
     <p>Proficiency Dice:<span id="proficiencyDie"></span></p>
     <p>Ability Dice:<span id="abilityDie"></span></p>
     <p>Boost Dice:<span id="boostDie"></span></p>
