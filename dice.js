@@ -1,28 +1,29 @@
-const d12_count = 0;
-const d6_count = 0;
-const d8_count = 0;
+const proficiencyDie = 0; //d12
+const boostDie = 0; //d6
+const abilityDie = 0; //d8
 
-function rollD12() {
+function rollProficiencyDie() {
     return Math.floor(Math.random() * 12) + 1;
 }
 
-function rollD6() {
+function rollBoostDie() {
     return Math.floor(Math.random() * 6) + 1;
 }
 
-function rollD8() {
+function rollAbilityDie() {
     return Math.floor(Math.random() * 8) + 1;
 }
-function getD12Count() {
-    return d12_count;
+
+function getProficiencyDie() {
+    return proficiencyDie;
 }
 
-function getD6Count() {
-    return d6_count;
+function getBoostDie() {
+    return boostDie;
 }  
 
-function getD8Count() {
-    return d8_count;
+function getAbilityDie() {
+    return abilityDie;
 }
 
 
