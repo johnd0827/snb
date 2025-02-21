@@ -10,27 +10,63 @@
     <h1>Sword and Bones Dice Roller</h1>
     <p>This is the snb repository.</p>
 
-
-<table>
-    <tr>
-        <td>Proficiency Dice Pool:</td>
-        <td><span id="proficiencyDie">0</span></td>
-        <td><button onclick="document.getElementById('proficiencyDie').textContent = updateProficiencyDie(1)">+</button></td>
-        <td><button onclick="document.getElementById('proficiencyDie').textContent = updateProficiencyDie(-1)">-</button></td>
-    </tr>
-    <tr>
-        <td>Ability Dice:</td>
-        <td><span id="abilityDie"></span></td>
-        <td><button onclick="updateAbilityDie(1)">+</button></td>
-        <td><button onclick="updateAbilityDie(-1)">-</button></td>
-    </tr>
-    <tr>
-        <td>Boost Dice:</td>
-        <td><span id="boostDie"></span></td>
-        <td><button onclick="updateBoostDie(1)">+</button></td>
-        <td><button onclick="updateBoostDie(-1)">-</button></td>
-    </tr>
-</table>
+    <div style="width: 50%;">
+    <div style="display: flex; float: left; flex-direction: row; gap: 10px;">
+      <table style="border: 1px solid black;">
+        <thead>
+            <tr>
+                <th colspan="4">Positive Dice Pool</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>Proficiency:</td>
+            <td><button onclick="document.getElementById('proficiencyDie').textContent = updateProficiencyDie(1)">+</button></td>
+            <td><button onclick="document.getElementById('proficiencyDie').textContent = updateProficiencyDie(-1)">-</button></td>
+            <td><span id="proficiencyDie">0</span></td>
+        </tr>
+        <tr>
+            <td>Ability:</td>
+            <td><button onclick="document.getElementById('abilityDie').textContent = updateAbilityDie(1)">+</button></td>
+            <td><button onclick="document.getElementById('abilityDie').textContent = updateAbilityDie(-1)">-</button></td>
+            <td><span id="abilityDie">0</span></td>
+        </tr>
+        <tr>
+            <td>Boost:</td>
+            <td><button onclick="document.getElementById('boostDie').textContent = updateBoostDie(1)">+</button></td>
+            <td><button onclick="document.getElementById('boostDie').textContent = updateBoostDie(-1)">-</button></td>
+            <td><span id="boostDie">0</span></td>
+        </tr>
+    </table>
+    </div>
+    <div style="display: flex; float: right; flex-direction: row; gap: 10px;">
+      <table style="border: 1px solid black;">
+        <thead>
+            <tr>
+                <th colspan="4">Positive Dice</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>Proficiency Dice Pool:</td>
+            <td><button onclick="document.getElementById('proficiencyDie').textContent = updateProficiencyDie(1)">+</button></td>
+            <td><button onclick="document.getElementById('proficiencyDie').textContent = updateProficiencyDie(-1)">-</button></td>
+            <td><span id="proficiencyDie">0</span></td>
+        </tr>
+        <tr>
+            <td>Ability Dice:</td>
+            <td><button onclick="document.getElementById('abilityDie').textContent = updateAbilityDie(1)">+</button></td>
+            <td><button onclick="document.getElementById('abilityDie').textContent = updateAbilityDie(-1)">-</button></td>
+            <td><span id="abilityDie">0</span></td>
+        </tr>
+        <tr>
+            <td>Boost Dice:</td>
+            <td><button onclick="document.getElementById('boostDie').textContent = updateBoostDie(1)">+</button></td>
+            <td><button onclick="document.getElementById('boostDie').textContent = updateBoostDie(-1)">-</button></td>
+            <td><span id="boostDie">0</span></td>
+        </tr>
+    </table>
+    </div>
+    </div>
+    
 
 
     <p>Proficiency Dice:<span id="proficiencyDie"></span></p>
@@ -46,26 +82,27 @@
         function updateProficiencyDie(i) {
           let n = getProficiencyDie();
           n += i;
-          setProficiencyDie(n);
-          return n;
-          //document.getElementById("proficiencyDie").textContent = n;
+          if (n >= 0){
+            setProficiencyDie(n);
+          }
+          return getProficiencyDie();
         }
         function updateBoostDie(i) {
           let n = getBoostDie();
           n += i;
-          setBoostDie(n);
-          document.getElementById("boostDie").textContent = n;
+          if (n >= 0){
+            setBoostDie(n);
+          }
+          return getBoostDie();
         }
         function updateAbilityDie(i) {
           let n = getAbilityDie();
           n += i;
-          setAbilityDie(n);
-          document.getElementById("abilityDie").textContent = n;
+          if (n >= 0){
+            setAbilityDie(n);
+          }
+          return getAbilityDie();
         }
-
-        //document.getElementById("proficiencyDie").textContent = getProficiencyDie();
-        //document.getElementById("boostDie").textContent = getBoostDie();
-        //document.getElementById("abilityDie").textContent = getAbilityDie();
 
         document.getElementById("proficiencyResult").textContent = rollProficiencyDie();
         document.getElementById("boostResult").textContent = rollBoostDie();
