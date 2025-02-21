@@ -1,6 +1,6 @@
-const proficiencyDie = 0; //d12
-const boostDie = 0; //d6
-const abilityDie = 0; //d8
+let proficiencyDie = 0; //d12
+let boostDie = 0; //d6
+let abilityDie = 0; //d8
 
 function rollProficiencyDie() {
     return Math.floor(Math.random() * 12) + 1;
