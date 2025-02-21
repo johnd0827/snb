@@ -10,15 +10,15 @@
 
 <table>
     <tr>
-        <td>Proficiency Dice:</td>
+        <td>Proficiency Dice Count:</td>
         <td><span id="proficiencyDie"></span></td>
-        <td><button onclick="document.getElementById('proficiencyResult').textContent = setProficiencyDie(getProficiencyDie()++)">+</button></td>
-        <td><button onclick="document.getElementById('proficiencyResult').textContent = setProficiencyDie(getProficiencyDie()--)">-</button></td>
+        <td><button onclick="document.getElementById('proficiencyResult').textContent = setProficiencyDie(getProficiencyDie()++); document.getElementById('proficiencyDie').textContent = getProficiencyDie();">+</button></td>
+        <td><button onclick="document.getElementById('proficiencyResult').textContent = setProficiencyDie(getProficiencyDie()--); document.getElementById('proficiencyDie').textContent = getProficiencyDie();">-</button></td>
     </tr>
     <tr>
         <td>Ability Dice:</td>
         <td><span id="abilityDie"></span></td>
-        <td><button onclick="document.getElementById('abilityResult').textContent = setAbilityDie(getAbilityDie()++)">+</button></td>
+          <td><button onclick="document.getElementById('abilityResult').textContent = setAbilityDie(getAbilityDie()++)">+</button></td>
         <td><button onclick="document.getElementById('abilityResult').textContent = setAbilityDie(getAbilityDie()--)">-</button></td>
     </tr>
     <tr>
@@ -40,7 +40,7 @@
     <p>Roll a D6: <span id="boostResult"></span></p>
     <p>Roll a D8: <span id="abilityResult"></span></p>
     <script>
-
+        
         document.getElementById("proficiencyDie").textContent = getProficiencyDie();
         document.getElementById("boostDie").textContent = getBoostDie();
         document.getElementById("abilityDie").textContent = getAbilityDie();
