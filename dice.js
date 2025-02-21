@@ -14,6 +14,18 @@ function rollAbilityDie() {
     return Math.floor(Math.random() * 8) + 1;
 }
 
+function setProficiencyDie(value) {
+    proficiencyDie = value;
+}
+
+function setBoostDie(value) {
+    boostDie = value;
+}
+
+function setAbilityDie(value) {
+    abilityDie = value;
+}
+
 function getProficiencyDie() {
     return proficiencyDie;
 }
