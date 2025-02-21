@@ -10,22 +10,22 @@
 
 <table>
     <tr>
-        <td>Proficiency Dice Count:</td>
+        <td>Proficiency Dice Pool:</td>
         <td><span id="proficiencyDie"></span></td>
-        <td><button onclick="document.getElementById('proficiencyResult').textContent = setProficiencyDie(getProficiencyDie()++); document.getElementById('proficiencyDie').textContent = getProficiencyDie();">+</button></td>
-        <td><button onclick="document.getElementById('proficiencyResult').textContent = setProficiencyDie(getProficiencyDie()--); document.getElementById('proficiencyDie').textContent = getProficiencyDie();">-</button></td>
+        <td><button onclick="updateProficiencyDie(1)">+</button></td>
+        <td><button onclick="updateProficiencyDie(-1)">-</button></td>
     </tr>
     <tr>
         <td>Ability Dice:</td>
         <td><span id="abilityDie"></span></td>
-          <td><button onclick="document.getElementById('abilityResult').textContent = setAbilityDie(getAbilityDie()++)">+</button></td>
-        <td><button onclick="document.getElementById('abilityResult').textContent = setAbilityDie(getAbilityDie()--)">-</button></td>
+        <td><button onclick="updateAbilityDie(1)">+</button></td>
+        <td><button onclick="updateAbilityDie(-1)">-</button></td>
     </tr>
     <tr>
         <td>Boost Dice:</td>
         <td><span id="boostDie"></span></td>
-        <td><button onclick="document.getElementById('boostResult').textContent = setBoostDie(getBoostDie()++)">+</button></td>
-        <td><button onclick="document.getElementById('boostResult').textContent = setBoostDie(getBoostDie()--)">-</button></td>
+        <td><button onclick="updateBoostDie(1)">+</button></td>
+        <td><button onclick="updateBoostDie(-1)">-</button></td>
     </tr>
 </table>
 
@@ -40,10 +40,24 @@
     <p>Roll a D6: <span id="boostResult"></span></p>
     <p>Roll a D8: <span id="abilityResult"></span></p>
     <script>
-        
-        document.getElementById("proficiencyDie").textContent = getProficiencyDie();
-        document.getElementById("boostDie").textContent = getBoostDie();
-        document.getElementById("abilityDie").textContent = getAbilityDie();
+        function updateProficiencyDie(i) {
+          let n = getProficiencyDie();
+          n += i;
+          setProficiencyDie(n);
+          document.getElementById("proficiencyDie").textContent = getProficiencyDie();
+        }
+        function updateBoostDie(i) {
+          let n = getBoostDie();
+          n += i;
+          setBoostDie(n);
+          document.getElementById("boostDie").textContent = getBoostDie();
+        }
+        function updateAbilityDie(i) {
+          let n = getAbilityDie();
+          n += i;
+          setAbilityDie(n);
+          document.getElementById("abilityDie").textContent = getAbilityDie();
+        }
 
         document.getElementById("proficiencyResult").textContent = rollProficiencyDie();
         document.getElementById("boostResult").textContent = rollBoostDie();
