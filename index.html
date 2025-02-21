@@ -6,8 +6,9 @@
   <body>
     <h1>Sword and Bones Dice Roller</h1>
     <p>This is the snb repository.</p>
-
-
+    <p>Proficiency Dice:<span id="proficiencyDie"></span></p>
+    <p>Ability Dice:<span id="abilityDie"></span></p>
+    <p>Boost Dice:<span id="boostDie"></span></p>
     <button onclick="document.getElementById('proficiencyResult').textContent = rollProficiencyDie()">Roll Proficiency Die!</button>
     <button onclick="document.getElementById('boostResult').textContent = rollBoostDie()">Roll Boost Die!</button>
     <button onclick="document.getElementById('abilityResult').textContent = rollAbilityDie()">Roll Ability Die!</button>
@@ -15,6 +16,11 @@
     <p>Roll a D6: <span id="boostResult"></span></p>
     <p>Roll a D8: <span id="abilityResult"></span></p>
     <script>
+
+        document.getElementById("proficiencyDie").textContent = getProficiencyDie();
+        document.getElementById("boostDie").textContent = getBoostDie();
+        document.getElementById("abilityDie").textContent = getAbilityDie();
+
         document.getElementById("proficiencyResult").textContent = rollProficiencyDie();
         document.getElementById("boostResult").textContent = rollBoostDie();
         document.getElementById("abilityResult").textContent = rollAbilityDie();
