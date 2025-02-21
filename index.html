@@ -12,20 +12,20 @@
     <tr>
         <td>Proficiency Dice:</td>
         <td><span id="proficiencyDie"></span></td>
-        <td><button onclick="document.getElementById('proficiencyResult').textContent = setProficiencyDie(1)">+</button></td>
-        <td><button onclick="document.getElementById('proficiencyResult').textContent = setProficiencyDie(-1)">-</button></td>
+        <td><button onclick="document.getElementById('proficiencyResult').textContent = setProficiencyDie(getProficiencyDie()++)">+</button></td>
+        <td><button onclick="document.getElementById('proficiencyResult').textContent = setProficiencyDie(getProficiencyDie()--)">-</button></td>
     </tr>
     <tr>
         <td>Ability Dice:</td>
         <td><span id="abilityDie"></span></td>
-        <td><button onclick="document.getElementById('abilityResult').textContent = setAbilityDie(1)">+</button></td>
-        <td><button onclick="document.getElementById('abilityResult').textContent = setAbilityDie(-1)">-</button></td>
+        <td><button onclick="document.getElementById('abilityResult').textContent = setAbilityDie(getAbilityDie()++)">+</button></td>
+        <td><button onclick="document.getElementById('abilityResult').textContent = setAbilityDie(getAbilityDie()--)">-</button></td>
     </tr>
     <tr>
         <td>Boost Dice:</td>
         <td><span id="boostDie"></span></td>
-        <td><button onclick="document.getElementById('boostResult').textContent = setBoostDie(1)">+</button></td>
-        <td><button onclick="document.getElementById('boostResult').textContent = setBoostDie(-1)">-</button></td>
+        <td><button onclick="document.getElementById('boostResult').textContent = setBoostDie(getBoostDie()++)">+</button></td>
+        <td><button onclick="document.getElementById('boostResult').textContent = setBoostDie(getBoostDie()--)">-</button></td>
     </tr>
 </table>
 
