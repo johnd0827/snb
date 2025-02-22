@@ -56,9 +56,23 @@
               <td><span id="setbackDie">0</span></td>
           </tr>
           <tr>
-            <td colspan="4" style="text-align: center;"><button onclick="rollPositiveDice()">Roll</button></td>
+            <td colspan="4" style="text-align: center;"><button style="width: 100%;" onclick="rollDice()">Roll</button></td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align: center;">Result</td>
+            <td colspan="2" style="text-align: center;">Sword/Bones</td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align: center;"><span id="result"></span></td>
+            <td colspan="2" style="text-align: center;"><span id="swordBones"></span></td>
           </tr>
       </table>
+      <p>Positive Result: <span id="positiveResult"></span></p>
+      <p>Negative Result: <span id="negativeResult"></span></p>
+      <p>Successes: <span id="successes"></span></p>
+      <p>Failures: <span id="failures"></span></p>
+      <p>Swords: <span id="swords"></span></p>
+      <p>Bones: <span id="bones"></span></p>
       </div>
     </div>
     
@@ -112,10 +126,29 @@
           }
           return getSetbackDie();
         }
-
-        document.getElementById("proficiencyResult").textContent = rollProficiencyDie();
-        document.getElementById("boostResult").textContent = rollBoostDie();
-        document.getElementById("abilityResult").textContent = rollAbilityDie();
+        function rollDice() {
+          document.getElementById('positiveResult').textContent = rollPositiveDice();
+          document.getElementById('negativeResult').textContent = rollNegativeDice();
+          document.getElementById('successes').textContent = getSuccessCount();
+          document.getElementById('failures').textContent = getFailureCount();
+          document.getElementById('swords').textContent = getSwordCount();
+          document.getElementById('bones').textContent = getBonesCount();
+          
+          s = getSuccessCount() - getFailureCount();
+          if (s > 0){
+            document.getElementById('result').textContent = "Success! " + s;
+          } else {
+            document.getElementById('result').textContent = "Failure! " + (s * -1);
+          }
+          s = getSwordCount() - getBonesCount();
+          if (s > 0){
+            document.getElementById('swordBones').textContent = "Swords: " + s;
+          } else if (s < 0){
+            document.getElementById('swordBones').textContent = "Bones: " + (s * -1);
+          } else {
+            document.getElementById('swordBones').textContent = "None";
+          }
+        }
     </script>
 </body>
 </html>
