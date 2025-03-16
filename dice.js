@@ -203,7 +203,7 @@ function rollNegativeDice() {
     return negativeDice.toString();
 }   
 
-function rollD100() {
+function roll100() {
     return Math.floor(Math.random() * 100) + 1;
 }
 
