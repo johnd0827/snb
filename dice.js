@@ -202,6 +202,11 @@ function rollNegativeDice() {
     }   
     return negativeDice.toString();
 }   
+
+function rollD100() {
+    return Math.floor(Math.random() * 100) + 1;
+}
+
 //d12's
 function rollProficiencyDie() {
     return Math.floor(Math.random() * 12) + 1;
