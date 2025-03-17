@@ -13,58 +13,70 @@
         <table style="border: 1px solid black; width: 200px;">
           <thead>
               <tr>
-                  <th colspan="4" style="text-align: center;">Positive Dice Pool</th>
+                  <th colspan="6" style="text-align: center;">Positive Dice Pool</th>
               </tr>
           </thead>
           <tr>
               <td>Ability:</td>
               <td><button onclick="document.getElementById('abilityDie').textContent = updateAbilityDie(1)">+</button></td>
+              <td> <!--<div style="width: 10px; height: 10px; background-color: aqua;"></div> --></td>
               <td><button onclick="document.getElementById('abilityDie').textContent = updateAbilityDie(-1)">-</button></td>
               <td><span id="abilityDie">0</span></td>
+              <td></td>
           </tr>
           <tr>
             <td>Proficiency:</td>
             <td><button onclick="document.getElementById('proficiencyDie').textContent = updateProficiencyDie(1)">+</button></td>
+            <td> <!--<div style="width: 10px; height: 10px; background-color: aqua;"></div>--> </td>
             <td><button onclick="document.getElementById('proficiencyDie').textContent = updateProficiencyDie(-1)">-</button></td>
             <td><span id="proficiencyDie">0</span></td>
+            <td></td>
           </tr>
           <tr>
               <td>Boost:</td>
               <td><button onclick="document.getElementById('boostDie').textContent = updateBoostDie(1)">+</button></td>
+              <td><div style="width: 10px; height: 10px; background-color: blue;"></div></td>
               <td><button onclick="document.getElementById('boostDie').textContent = updateBoostDie(-1)">-</button></td>
               <td><span id="boostDie">0</span></td>
+              <td></td>
           </tr>
           <tr>
-              <th colspan="4" style="text-align: center;">Negative Dice Pool</th>
+              <th colspan="6" style="text-align: center;">Negative Dice Pool</th>
           </tr>
           <tr>
               <td>Difficulty:</td>
               <td><button onclick="document.getElementById('difficultyDie').textContent = updateDifficultyDie(1)">+</button></td>
+              <td><!--<div style="width: 10px; height: 10px; background-color: aqua;"></div>--> </td>
               <td><button onclick="document.getElementById('difficultyDie').textContent = updateDifficultyDie(-1)">-</button></td>
               <td><span id="difficultyDie">0</span></td>
+              <td></td>
           </tr>
           <tr>
             <td>Challenge:</td>
             <td><button onclick="document.getElementById('challengeDie').textContent = updateChallengeDie(1)">+</button></td>
+            <td><!--<div style="width: 10px; height: 10px; background-color: aqua;"></div>--></td>
             <td><button onclick="document.getElementById('challengeDie').textContent = updateChallengeDie(-1)">-</button></td>
             <td><span id="challengeDie">0</span></td>
+            <td></td>
           </tr>
           <tr>
               <td>Setback:</td>
               <td><button onclick="document.getElementById('setbackDie').textContent = updateSetbackDie(1)">+</button></td>
+              <td><div style="width: 10px; height: 10px; background-color: black;"></div></td>
               <td><button onclick="document.getElementById('setbackDie').textContent = updateSetbackDie(-1)">-</button></td>
               <td><span id="setbackDie">0</span></td>
+              <td></td>
           </tr>
           <tr>
-            <td colspan="4" style="text-align: center;"><button style="width: 100%;" onclick="rollDice()">Roll</button></td>
+            <td colspan="6" style="text-align: center;"><button style="width: 100%;" onclick="rollDice()">Roll</button></td>
           </tr>
           <tr>
-            <td colspan="2" style="text-align: center;">Outcome</td>
-            <td colspan="2" style="text-align: center;">Fate</td>
+            <td colspan="2">Outcome:</td>
+            <td colspan="4"><span id="result"> None </span></td>
           </tr>
           <tr>
-            <td colspan="2" style="text-align: center;"><span id="result"> None </span></td>
-            <td colspan="2" style="text-align: center;"><span id="swordBones"> None </span></td>
+            <td colspan="2">Fate:</td>
+            <td colspan="4"><span id="swordBones"> None </span></td>
           </tr>
       </table>
       <br />
@@ -75,21 +87,36 @@
           </tr>
         </thead>
         <tr>
-          <td style="text-align: left;"><button onclick="rollD100()">Roll D100</button></td>
+          <td style="text-align: left;"><button onclick="rollD100()" style="width: 100px;">D100</button></td>
           <td style="text-align: center;"><span id="d100Result"></span></td>
         </tr>
+        <tr>
+          <td style="text-align: left;"><button onclick="rollD20()" style="width: 100px;">D20</button></td>
+          <td style="text-align: center;"><span id="d20Result"></span></td>
+        </tr>
       </table>
-
-
-      <p>Positive Roll: <span id="positiveResult"></span><br /> 
+      <br />
+      <table style="border: 1px solid black; width: 200px;">
+        <thead>
+          <tr>
+            <th>Other Options</th>
+          </tr>
+        </thead>
+        <tr>
+          <td style="text-align: center;"><button onclick="window.location.reload();" style="width: 100px;">Reset All</button></td>
+        </tr>
+      </table>
+      </div>
+    </div>
+    
+    <!--
+    <p>Positive Roll: <span id="positiveResult"></span><br /> 
       Negative Roll: <span id="negativeResult"></span><br />
       Success count: <span id="successes"></span><br />
       Failure count: <span id="failures"></span><br />
       Sword count: <span id="swords"></span><br />
       Bones count: <span id="bones"></span></p>
-      </div>
-    </div>
-    
+    -->
 
     <script>
         function updateProficiencyDie(i) {
@@ -141,33 +168,40 @@
           return getSetbackDie();
         }
         function rollDice() {
-          document.getElementById('positiveResult').textContent = rollPositiveDice();
-          document.getElementById('negativeResult').textContent = rollNegativeDice();
-          document.getElementById('successes').textContent = getSuccessCount();
-          document.getElementById('failures').textContent = getFailureCount();
-          document.getElementById('swords').textContent = getSwordCount();
-          document.getElementById('bones').textContent = getBonesCount();
+          
+          //document.getElementById('positiveResult').textContent = rollPositiveDice();
+          //document.getElementById('negativeResult').textContent = rollNegativeDice();
+          //document.getElementById('successes').textContent = getSuccessCount();
+          //document.getElementById('failures').textContent = getFailureCount();
+          //document.getElementById('swords').textContent = getSwordCount();
+          //document.getElementById('bones').textContent = getBonesCount();
+          
+          rollPositiveDice();
+          rollNegativeDice();
           
           s = getSuccessCount() - getFailureCount();
           if (s > 0){
-            document.getElementById('result').textContent = "Success! " + s;
+            document.getElementById('result').textContent = s + " Success";
           } else if (s < 0) {
-            document.getElementById('result').textContent = "Failure! " + (s * -1);
+            document.getElementById('result').textContent = (s * -1) + " Failure";
           } else {
-            document.getElementById('result').textContent = "Tied! " + s;
+            document.getElementById('result').textContent = s + " Tied";
           }
 
           s = getSwordCount() - getBonesCount();
           if (s > 0){
-            document.getElementById('swordBones').textContent = "Swords: " + s;
+            document.getElementById('swordBones').textContent = s + " Swords";
           } else if (s < 0){
-            document.getElementById('swordBones').textContent = "Bones: " + (s * -1);
+            document.getElementById('swordBones').textContent = (s * -1) + " Bones";
           } else {
-            document.getElementById('swordBones').textContent = "None";
+            document.getElementById('swordBones').textContent = " None";
           }
         }
         function rollD100() {
           document.getElementById('d100Result').textContent = roll100();
+        }
+        function rollD20() {
+          document.getElementById('d20Result').textContent = roll20();
         }
     </script>
 </body>
